@@ -1,4 +1,3 @@
 * linguist-vendored
-*.java linguist-vendored=true
-*.jee linguist-vendored=true
-*.jsf linguist-vendored=true
+*.java linguist-vendored=false
+*.jsf linguist-vendored=false
