@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<style type="text/css">
+    .ui-paginator a {
+        margin-right: 5px;
+    }
+</style>
+</h:head> 
+<body> 
+
+<!-- the exporter only export the mentionned var specified below (does not export the columns not mentionned below) -->
+<!-- value="#{reportExportBean.cursus}" works but value="#{reportExportBean.cursus_patient}" don't(it works in the client!!) -->
+
+<h:form>
+    <p:dataTable id="tbl" var="curp" value="#{reportExportBean.cursus_patient}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                 paginator="true" rows="10" style="margin-bottom:20px">
+           
+	        <f:facet name="{Exporters}">
+	            <div style="float:right;padding-top: 5px;">
+	                <h:commandLink>
+	                    <p:graphicImage name="logo/xls.png" width="24"/>
+	                    <p:dataExporter type="xls" target="tbl" fileName="XLS Report" pageOnly="false"/>
+	                </h:commandLink>
+	 
+	                <h:commandLink>
+	                    <p:graphicImage name="logo/pdf.png" width="24"/>
+	                    <p:dataExporter type="pdf" target="tbl" fileName="PDF Report" pageOnly="false"/>
+	                </h:commandLink>
+	 
+	                <h:commandLink>
+	                    <p:graphicImage name="logo/csv.png" width="24"/>
+	                    <p:dataExporter type="csv" target="tbl" fileName="CSV Report" pageOnly="false"/>
+	                </h:commandLink>
+	            </div>
+	        </f:facet>
+	 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Id Patient" />
+            </f:facet>
+            <h:outputText value="#{curp.idPatient}" />
+        </p:column>
+        
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Id" />
+            </f:facet>
+            <h:outputText value="#{curp.id}" />
+        </p:column>
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Compte Rendu"/>
+            </f:facet>
+            <h:outputText value="#{curp.compte_rendu}" />
+        </p:column>
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Report" />
+            </f:facet>
+            <h:outputText value="#{curp.report}" />
+        </p:column>
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Treatment" />
+            </f:facet>
+            <h:outputText value="#{curp.treatment}" />
+        </p:column>
+    </p:dataTable>
+
+</h:form>
+</body> 
+</html>

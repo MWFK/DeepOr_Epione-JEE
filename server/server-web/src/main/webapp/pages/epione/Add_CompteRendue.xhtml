@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+<h2 align="center">Redaction Compte Rendu Visit et Export de rapport</h2>
+	<h:form>
+	    <h:panelGrid columns="4" cellpadding="5">
+	    	<h:outputText value="Id Cursus:" style="font-weight:bold"/>
+			<p:inputText value="#{reportExportBean.id}"/>
+	    
+	    	<h:outputText value="Id Patient:" style="font-weight:bold"/>
+			<p:inputText value="#{reportExportBean.idPatient}"/>
+
+	    	<h:outputText value="Compte Rendu:" style="font-weight:bold"/>
+			<p:inputText value="#{reportExportBean.compte_rendu}"/>
+
+	        <h:outputText value="Report:" style="font-weight:bold"/>
+			<p:inputText value="#{reportExportBean.report}"/>
+			
+		    <h:outputText value="Treatment:" style="font-weight:bold"/>
+			<p:inputText value="#{reportExportBean.treatment}"/>
+			
+			 <p:commandButton value="Ajouter compte rendu" icon="pi pi-check" action="#{reportExportBean.Ajouter()}"/>
+			 <p:commandButton value="Export Report" icon="pi pi-check" action="#{reportExportBean.Redirection_Export()}"/>
+			 <!-- <p:commandButton value="Send Compte Rendue" icon="pi pi-check" action="#{reportExportBean.Redirection_Send()}"/> -->
+	    </h:panelGrid>
+	</h:form>
+
+</body> 
+</html>

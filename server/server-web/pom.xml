@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>mk</groupId>
+		<artifactId>server</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>server-web</artifactId>
+	<packaging>war</packaging>
+
+	<properties>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mk</groupId>
+			<artifactId>server-ejb</artifactId>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Primefaces --> 
+<!--      <dependency>
+       <groupId>org.primefaces</groupId>
+       <artifactId>primefaces</artifactId>
+       <version>3.4</version>
+   </dependency>  -->
+   
+   <!-- iText dependency to download in pdf (primefaces uses 2.1.7)-->
+    <dependency>
+        <groupId>com.lowagie</groupId>
+        <artifactId>itext</artifactId>
+        <version>2.1.7</version>
+    </dependency>
+    
+    
+    <!-- dependency for XLS download-->
+    <!-- instead of add the jars by myself i can use components and their dependencies page: http://poi.apache.org/components/index.html#components -->
+    <dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi</artifactId>
+	    <version>3.7</version>
+	</dependency>
+    
+<!--     <dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi</artifactId>
+	    <version>3.7</version>
+	</dependency>
+    
+for XLS(3.1 does not work) https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi-ooxml-schemas</artifactId>
+	    <version>3.7</version>
+	</dependency> -->
+		
+	</dependencies>
+	
+	<repositories>
+	<!-- Primefaces dowload location(once added it will be automatically updated)-->
+     <repository>
+         <id>primefaces-repository</id>
+         <name>Primefaces repository</name>
+         <url>http://repository.primefaces.org</url>
+     </repository>
+ </repositories>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+	</build>
+
+</project>
